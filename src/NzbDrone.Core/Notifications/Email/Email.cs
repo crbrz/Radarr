@@ -101,6 +101,8 @@ namespace NzbDrone.Core.Notifications.Email
         {
             using (var client = new SmtpClient())
             {
+                client.Timeout = 10000;
+
                 var serverOption = SecureSocketOptions.Auto;
 
                 if (settings.RequireEncryption)
